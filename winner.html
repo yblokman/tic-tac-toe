@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  </head>
+  <body>
+    <section class="container">
+      <section class="content__itens">
+        <div class="content__title">
+          <h1 class="title" id="winnerGame">TIC-TAC-TOE</h1>
+          <p class="subtitle" id="winType"></p>
+          <button class="reload" id="reloadWin" onclick="reloadGame()">New game?</button>
+        </div>
+
+        <div class="svg__cross">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="300"
+            height="300"
+            viewBox="0 0 338 337"
+            fill="none"
+          >
+            <path
+              opacity="0.1"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10.9426 10.9103C25.5328 -3.63676 49.1882 -3.63676 63.7784 10.9103L169 115.821L274.222 10.9103C288.812 -3.63676 312.467 -3.63676 327.057 10.9103C341.648 25.4573 341.648 49.0427 327.057 63.5897L221.836 168.5L327.057 273.41C341.648 287.957 341.648 311.543 327.057 326.09C312.467 340.637 288.812 340.637 274.222 326.09L169 221.179L63.7784 326.09C49.1882 340.637 25.5328 340.637 10.9426 326.09C-3.64755 311.543 -3.64755 287.957 10.9426 273.41L116.164 168.5L10.9426 63.5897C-3.64755 49.0427 -3.64755 25.4573 10.9426 10.9103Z"
+              fill="black"
+            />
+          </svg>
+        </div>
+
+        <div class="svg__circle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="300"
+            height="300"
+            viewBox="0 0 339 339"
+            fill="none"
+          >
+            <path
+              opacity="0.1"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M169.5 74.6789C117.132 74.6789 74.6789 117.132 74.6789 169.5C74.6789 221.868 117.132 264.321 169.5 264.321C221.868 264.321 264.321 221.868 264.321 169.5C264.321 117.132 221.868 74.6789 169.5 74.6789ZM0 169.5C0 75.8877 75.8877 0 169.5 0C263.112 0 339 75.8877 339 169.5C339 263.112 263.112 339 169.5 339C75.8877 339 0 263.112 0 169.5Z"
+              fill="black"
+            />
+          </svg>
+        </div>
+      </section>
+    </section>
+    <script>
+      var color = localStorage.getItem('winnerType')
+
+      if(color == "X"){
+        color = '#f54d62';
+      } else{
+        color = '#87e43a'
+      }
+
+      console.log(color)
+
+      const jsConfetti = new JSConfetti();
+
+      function confettiFY() {
+        jsConfetti.addConfetti({
+          confettiColors: [color],
+        });
+      }
+      confettiFY();
+    </script>
+    <script src="startX.js"></script>
+  </body>
+</html>
